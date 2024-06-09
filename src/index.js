@@ -13,7 +13,7 @@ PORT = process.env.PORT;
 app.get('/users', async(req, res) => {
     const allUser = await prisma.user.findMany()
 
-    res.send(allUser)
+    res.json(allUser)
 })
 
 app.listen(PORT, () => {
