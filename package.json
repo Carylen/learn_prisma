@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
-    "build": "prisma generate"
+    "start": "node index.js",
+    "build": "mkdir -p dist && prisma generate && node index.js"
   },
   "keywords": [],
   "author": "",
