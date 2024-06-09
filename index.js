@@ -11,13 +11,17 @@ app.use(express.json());
 const prisma = new PrismaClient();
 
 dotenv.config();
-PORT = process.env.PORT;
+PORT = process.env.PORT || 3000;
 
 app.get("/users", async (req, res) => {
-  const allUser = await prisma.user.findMany();
+  try {
+    const allUser = await prisma.user.findMany();
+    console.log(`Fetching All User : ${JSON.stringify(allUser)}`)
+  } catch (error) {
+    console.error(error)
+    res.send(error);
+  }
 
-  console.log(`Fetching All User : ${JSON.stringify(allUser)}`)
-  res.send(allUser);
 });
 
 app.get("/users/:id", async (req, res) => {
