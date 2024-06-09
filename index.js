@@ -15,6 +15,8 @@ const prisma = new PrismaClient();
 dotenv.config();
 PORT = process.env.PORT || 3000;
 
+console.log(process.env)
+
 app.get("/users", async (req, res) => {
   try {
     const allUser = await prisma.user.findMany();
