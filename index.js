@@ -48,4 +48,20 @@ app.listen(PORT, () => {
   console.log(`Server are running on PORT : ${PORT}`);
 });
 
-module.exports = app;
+// module.exports = app;
+
+// "builds":[
+//     {
+//       "src":"package.json",
+//       "use":"@now/node",
+//       "config":{
+//         "includeFiles": "prisma/**"
+//       }
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "src":"/.",
+//       "dest":"package.json"
+//     }
+//   ]

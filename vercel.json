@@ -1,18 +1,4 @@
 {
-  "version": 2,
-  "builds":[
-    {
-      "src":"package.json",
-      "use":"@now/node",
-      "config":{
-        "includeFiles": "prisma/**"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src":"/.",
-      "dest":"package.json"
-    }
-  ]
+  "version": 2
+  
 }
