@@ -2,10 +2,10 @@
   "name": "testclone",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "build": "prisma generate",
-    "start": "node index.js",
+    "start": "node api/index.js",
     "postinstall": "prisma generate"
   },
   "keywords": [],
