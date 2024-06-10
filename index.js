@@ -19,10 +19,16 @@ app.get("/users", async (req, res) => {
   try {
     const allUser = await prisma.user.findMany();
     console.log(`Fetching All User : ${JSON.stringify(allUser)}`);
-    res.send(allUser);
+    
+    if(allUser){
+      res.json(allUser)
+    }
+    else{
+      res.status(200).json({error : 'Data Not Found!'})
+    }
   } catch (error) {
     console.error(error);
-    res.send(error);
+    res.status(500);
   }
 });
 
