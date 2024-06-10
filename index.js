@@ -1,31 +1,29 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const { PrismaClient } = require("@prisma/client");
-const cors = require('cors')
+const cors = require("cors");
 // const bodyParser = require('body-parser')
-
-
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 const prisma = new PrismaClient();
 
 dotenv.config();
 PORT = process.env.PORT || 3000;
 
-console.log(process.env)
+console.log(process.env);
 
 app.get("/users", async (req, res) => {
   try {
     const allUser = await prisma.user.findMany();
-    console.log(`Fetching All User : ${JSON.stringify(allUser)}`)
+    console.log(`Fetching All User : ${JSON.stringify(allUser)}`);
+    res.send(allUser);
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.send(error);
   }
-
 });
 
 app.get("/users/:id", async (req, res) => {
@@ -46,10 +44,9 @@ app.get("/users/:id", async (req, res) => {
       res.status(404).json({ error: "User not found" });
     }
   } catch (error) {
-    console.error(`Error : ${error.message}`)
-    res.status(500).send('Internal Server Error')
+    console.error(`Error : ${error.message}`);
+    res.status(500).send("Internal Server Error");
   }
-  
 });
 
 app.listen(PORT, () => {
