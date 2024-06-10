@@ -2,6 +2,9 @@
   "version": 2,
   "builds": [{ "src": "index.js", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "index.js" }],
-  "region": ["sin1"],
-  "maxDuration": 30
+  "functions": {
+    "index.js": {
+      "maxDuration": 30
+    }
+  }
 }
